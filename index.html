@@ -118,10 +118,13 @@ body{
 
 .bow{
     position:absolute;
-    opacity:0.6;
+    opacity:0.4;
     animation:rise linear infinite;
-    color: #eed8cd;
-    text-shadow: 0 0 5px rgba(255,255,255,0.5);
+    background-image: url('sun-seal.jpg');
+    background-position: center;
+    background-size: 350%;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 @keyframes rise{
@@ -596,8 +599,8 @@ for(let i=0;i<35;i++){
     const bow = document.createElement("div");
 
     bow.classList.add("bow");
-    bow.innerHTML = "🌞";
-    bow.style.fontSize= (15+Math.random()*25)+"px";
+    bow.style.width = (30+Math.random()*40)+"px";
+    bow.style.height = bow.style.width;
     bow.style.left=Math.random()*100+"%";
 
     bow.style.animationDuration=
