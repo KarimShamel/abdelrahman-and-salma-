@@ -47,106 +47,47 @@ body{
 #curtainContainer{
     position:fixed;
     inset:0;
-    z-index:999999;
-    display:flex;
-    cursor:pointer;
-    overflow:hidden;
+    z-index:100;
+    background-color: #9fa480;
+    background-image: url('olive-seal.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: opacity 1s ease;
 }
 
-.curtain-left,
-.curtain-right{
-    width:50%;
-    height:100%;
-    position:relative;
-    transition:2s ease;
-    background: #eed8cd;
-    box-shadow: inset 0 0 50px rgba(0,0,0,0.05);
+@media (max-width: 768px) {
+    #curtainContainer {
+        background-image: url('olive-seal-mobile.jpg');
+        background-size: cover;
+    }
 }
 
-.curtain-left {
-    z-index: 2;
-    box-shadow: 2px 0 10px rgba(0,0,0,0.05);
-}
-
-.curtain-right {
-    z-index: 1;
-}
-
-.seal-left, .seal-right {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 80px;
-    height: 160px;
-    background: #e6cdbf;
-    box-shadow: inset 0 0 10px rgba(255,255,255,0.5), 0 5px 15px rgba(0,0,0,0.1);
-    display: flex;
-    align-items: center;
-    z-index: 15;
-}
-
-.seal-left {
-    right: 0;
-    border-radius: 80px 0 0 80px;
-    justify-content: flex-end;
-    padding-right: 5px;
-    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
-    z-index: 16;
-}
-
-.seal-right {
-    left: 0;
-    border-radius: 0 80px 80px 0;
-    justify-content: flex-start;
-    padding-left: 5px;
-    z-index: 15;
-}
-
-.swan {
-    font-size: 45px;
-    filter: sepia(0.3) saturate(0.6) brightness(1.05) drop-shadow(0 2px 3px rgba(0,0,0,0.1));
-}
-
-.swan-flip {
-    transform: scaleX(-1);
-}
-
-.curtain-center{
-    position:absolute;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:20;
-    transition:opacity 0.5s ease;
-}
-
-.curtain-open .curtain-center{
-    opacity:0;
-    pointer-events:none;
+.curtain-open {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .curtain-content{
     position: absolute;
     inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align:center;
-    color:var(--olive-dark);
+    color: #f8eedc;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 .curtain-content h2{
-    position: absolute;
-    bottom: calc(50% + 100px);
-    width: 100%;
     font-family:'Playfair Display',serif;
     font-size:clamp(2.5rem,6vw,4rem);
     margin:0;
 }
 
 .curtain-content p{
-    position: absolute;
-    top: calc(50% + 100px);
-    width: 100%;
-    margin:0;
+    margin: 20px 0 0 0;
     letter-spacing:5px;
     text-transform:uppercase;
     font-size:0.75rem;
@@ -157,14 +98,6 @@ body{
 @keyframes pulseOpacity{
     0%,100%{opacity:0.3; transform:translateY(0);}
     50%{opacity:0.8; transform:translateY(-3px);}
-}
-
-.curtain-open .curtain-left{
-    transform:translateX(-100%);
-}
-
-.curtain-open .curtain-right{
-    transform:translateX(100%);
 }
 
 @keyframes floatBow{
@@ -185,13 +118,10 @@ body{
 
 .bow{
     position:absolute;
-    opacity:0.4;
+    opacity:0.6;
     animation:rise linear infinite;
-    background-image: url('sun-seal.jpg');
-    background-position: center;
-    background-size: 350%;
-    border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    color: #eed8cd;
+    text-shadow: 0 0 5px rgba(255,255,255,0.5);
 }
 
 @keyframes rise{
@@ -459,29 +389,10 @@ video{
 <!-- CURTAIN -->
 
 <div id="curtainContainer">
-
-    <div class="curtain-left">
-        <div class="seal-left"><span class="swan swan-flip">🦢</span></div>
+    <div class="curtain-content">
+        <h2>Abdelrahman & Salma</h2>
+        <p>Tap to unseal</p>
     </div>
-
-    <div class="curtain-center">
-
-        <div class="curtain-content">
-
-            <div class="curtain-bow"></div>
-
-            <h2>Abdelrahman & Salma</h2>
-
-            <p>Tap to unseal</p>
-
-        </div>
-
-    </div>
-
-    <div class="curtain-right">
-        <div class="seal-right"><span class="swan">🦢</span></div>
-    </div>
-
 </div>
 
 <!-- FLOATING BOWS -->
@@ -510,12 +421,12 @@ video{
 
         <div class="divider">
             <span></span>
-            🌞
+            ✨
             <span></span>
         </div>
 
         <p class="subtitle">
-            Join us as we celebrate love, joy and a beautiful new beginning.
+            Together with our families, we invite you to celebrate the beginning of our forever.
         </p>
 
         <div class="countdown">
@@ -562,7 +473,7 @@ video{
 
                 <div>
                     <h3>📅 Date & Time</h3>
-                    <p>17 July 2026 at 7:00 PM</p>
+                    <p>Friday, 17 July 2026 at 7:00 PM</p>
                 </div>
 
                 <div>
@@ -583,6 +494,12 @@ video{
                    href="https://maps.app.goo.gl/RDZgBoio24uBomGh8?g_st=iwb">
                    View Location
                 </a>
+            </div>
+            
+            <div style="text-align:center; margin-top: 40px; padding-bottom: 20px;">
+                <p style="font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--olive-dark);">
+                    "As two hearts become one, we would be honored to celebrate with you."
+                </p>
             </div>
 
         </div>
@@ -629,20 +546,10 @@ video{
 const curtain = document.getElementById("curtainContainer");
 
 curtain.addEventListener("click",()=>{
-
     curtain.classList.add("curtain-open");
-
     setTimeout(()=>{
-
-        curtain.style.opacity="0";
-        curtain.style.transition="1s";
-
-        setTimeout(()=>{
-            curtain.remove();
-        },1000);
-
-    },2000);
-
+        curtain.remove();
+    },1000);
 });
 
 /* COUNTDOWN */
@@ -689,10 +596,9 @@ for(let i=0;i<35;i++){
     const bow = document.createElement("div");
 
     bow.classList.add("bow");
-
-    bow.style.width = (30+Math.random()*40)+"px";
-    bow.style.height = bow.style.width;
-    bow.style.left = Math.random()*100+"%";
+    bow.innerHTML = "✨";
+    bow.style.fontSize= (15+Math.random()*25)+"px";
+    bow.style.left=Math.random()*100+"%";
 
     bow.style.animationDuration=
     (15+Math.random()*20)+"s";
