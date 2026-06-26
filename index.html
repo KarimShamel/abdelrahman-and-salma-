@@ -119,42 +119,6 @@ body{
     50%{opacity:0.8; transform:translateY(-3px);}
 }
 
-@keyframes floatBow{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-10px);}
-}
-
-/* ===================================================
-   FLOATING BOWS
-=================================================== */
-
-#bows{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:1;
-}
-
-.bow{
-    position:absolute;
-    opacity:0.4;
-    animation:rise linear infinite;
-    background-image: url('sun-seal.jpg');
-    background-position: center;
-    background-size: 350%;
-    border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-@keyframes rise{
-    from{
-        transform:translateY(120vh) rotate(0deg);
-    }
-    to{
-        transform:translateY(-150px) rotate(360deg);
-    }
-}
-
 /* ===================================================
    HERO
 =================================================== */
@@ -420,9 +384,7 @@ video{
     </div>
 </div>
 
-<!-- FLOATING BOWS -->
 
-<div id="bows"></div>
 
 <!-- HERO -->
 
@@ -624,27 +586,7 @@ function updateCountdown(){
 updateCountdown();
 setInterval(updateCountdown,1000);
 
-/* FLOATING BOWS */
 
-const bows = document.getElementById("bows");
-
-for(let i=0;i<35;i++){
-
-    const bow = document.createElement("div");
-
-    bow.classList.add("bow");
-    bow.style.width = (30+Math.random()*40)+"px";
-    bow.style.height = bow.style.width;
-    bow.style.left=Math.random()*100+"%";
-
-    bow.style.animationDuration=
-    (15+Math.random()*20)+"s";
-
-    bow.style.animationDelay=
-    "-" + (Math.random()*35)+"s";
-
-    bows.appendChild(bow);
-}
 
 /* REVEAL */
 
