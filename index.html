@@ -54,6 +54,7 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     transition: opacity 1s ease;
+    cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -389,12 +390,15 @@ video{
 </head>
 <body>
 
+<!-- HIDDEN AUDIO -->
+<audio id="bgMusic" src="music.mp3" preload="auto"></audio>
+
 <!-- CURTAIN -->
 
 <div id="curtainContainer">
     <div class="curtain-content">
-        <h2></h2>
-        <p></p>
+        <h2>✨</h2>
+        <p>Click to open</p>
     </div>
 </div>
 
@@ -544,15 +548,27 @@ video{
 
 <script>
 
-/* CURTAIN */
-
+/* MUSIC - Play when curtain opens */
 const curtain = document.getElementById("curtainContainer");
+const bgMusic = document.getElementById("bgMusic");
+let musicStarted = false;
 
-curtain.addEventListener("click",()=>{
-    curtain.classList.add("curtain-open");
-    setTimeout(()=>{
-        curtain.remove();
-    },1000);
+curtain.addEventListener("click", function openCurtain() {
+    
+    // Play music
+    if (!musicStarted) {
+        bgMusic.play().catch(error => {
+            console.log('Autoplay blocked - user interaction needed');
+        });
+        musicStarted = true;
+    }
+    
+    // Open curtain
+    this.classList.add("curtain-open");
+    
+    setTimeout(() => {
+        this.remove();
+    }, 1000);
 });
 
 /* COUNTDOWN */
