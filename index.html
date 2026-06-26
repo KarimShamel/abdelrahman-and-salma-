@@ -40,20 +40,21 @@ html{
 
 body{
     overflow-x:hidden;
-    background-image: url('sun-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    background:
+    radial-gradient(circle at top left, rgba(242,155,155,.25), transparent 35%),
+    radial-gradient(circle at bottom right, rgba(253,224,120,.30), transparent 35%),
+    linear-gradient(135deg,var(--cream),#fff4e6);
     font-family:'Montserrat',sans-serif;
     color:#4d3d38;
 }
 
 @media (min-width: 769px) {
     body {
-        background-size: contain;
-        background-repeat: repeat-y;
-        background-color: #837933;
+        background-image: url('sun-background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
     }
 }
 
